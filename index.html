@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>數化策略與規範</title>
 
 <style>
-
 *{
   box-sizing:border-box;
 }
@@ -15,660 +13,456 @@
 body{
   margin:0;
   font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
-  background:#0f1318;
-  color:#fff;
+  background:#fafafa;
+  color:#294344;
 }
 
 .wrapper{
-  max-width:1500px;
+  max-width:1300px;
   margin:auto;
-  padding:80px 55px 100px;
+  padding:60px 40px 80px;
 }
-
-/* ===== 標題 ===== */
 
 .header{
   text-align:center;
-  margin-bottom:70px;
-}
-
-.header .small{
-  color:#76a9ff;
-  letter-spacing:4px;
-  font-size:14px;
-  font-weight:700;
+  margin-bottom:45px;
 }
 
 .header h1{
-  font-size:48px;
-  margin:14px 0 18px;
+  margin:0 0 12px;
+  font-size:42px;
 }
 
 .header p{
-  max-width:800px;
   margin:auto;
-  color:#aeb8c3;
-  line-height:1.9;
-  font-size:17px;
+  max-width:760px;
+  color:#687d7d;
+  line-height:1.8;
 }
 
-/* ===== 大章節 ===== */
-
-.section{
-  margin-bottom:100px;
-}
-
-.section-title{
+/* 主按鈕 */
+.tabs{
   display:flex;
-  align-items:center;
-  gap:18px;
-  margin-bottom:36px;
-}
-
-.section-number{
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  background:#4f8df7;
-  display:flex;
-  align-items:center;
   justify-content:center;
-  font-weight:800;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-bottom:35px;
 }
 
-.section-title h2{
-  font-size:32px;
-  margin:0;
+.tab-btn{
+  border:1px solid #bfcfcd;
+  background:#fff;
+  color:#365556;
+  border-radius:999px;
+  padding:12px 22px;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.25s;
 }
 
-/* ===== 策略 ===== */
+.tab-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 16px rgba(0,0,0,.08);
+}
 
-.strategy-grid{
+.tab-btn.active{
+  background:#5d9fa8;
+  color:#fff;
+  border-color:#5d9fa8;
+}
+
+/* 內容區 */
+.panel{
+  display:none;
+  animation:fadeIn .3s ease;
+}
+
+.panel.active{
+  display:block;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(8px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.card-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:24px;
+  gap:20px;
 }
 
-.strategy-card{
-  background:#171d24;
-  border:1px solid #2a333d;
-  border-radius:20px;
-  padding:32px;
-  transition:.3s;
+.card{
+  background:#fff;
+  border:1px solid #d9e0de;
+  border-radius:16px;
+  padding:26px;
+  box-shadow:0 6px 18px rgba(0,0,0,.04);
 }
 
-.strategy-card:hover{
-  transform:translateY(-6px);
-  border-color:#667687;
+.card h3{
+  margin:0 0 12px;
+  font-size:21px;
 }
 
-.icon{
-  font-size:42px;
-  margin-bottom:16px;
-}
-
-.strategy-card h3{
-  font-size:22px;
-  margin:0 0 14px;
-}
-
-.strategy-card p{
-  color:#b9c3cd;
-  line-height:1.9;
+.card p{
   margin:0;
+  color:#647777;
+  line-height:1.85;
 }
 
-/* ===== 一致規範 ===== */
-
-.rules{
+/* 一致規範 */
+.rule-grid{
   display:grid;
   grid-template-columns:repeat(5,1fr);
-  gap:16px;
+  gap:14px;
 }
 
 .rule{
-  background:#171d24;
-  border-top:4px solid #81b4ff;
+  background:#fff;
+  border-top:4px solid #73aeb5;
   border-radius:14px;
-  padding:24px 20px;
+  padding:22px 18px;
+  border-left:1px solid #d9e0de;
+  border-right:1px solid #d9e0de;
+  border-bottom:1px solid #d9e0de;
 }
 
-.rule-num{
-  color:#81b4ff;
-  font-size:13px;
-  font-weight:800;
-  margin-bottom:12px;
-}
-
-.rule h3{
-  font-size:18px;
-  margin:0 0 12px;
-}
-
-.rule p{
-  font-size:14px;
-  line-height:1.8;
-  color:#b9c3cd;
-  margin:0;
-}
-
-/* ===== 類別卡片 ===== */
-
-.categories{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:22px;
-}
-
-.category{
-  background:#171d24;
-  border:1px solid #2c3540;
-  border-radius:18px;
-  padding:28px;
-  transition:.3s;
-}
-
-.category:hover{
-  transform:translateY(-5px);
-}
-
-.category-icon{
-  font-size:38px;
-}
-
-.category h3{
-  font-size:21px;
-  margin:14px 0 12px;
-}
-
-.category p{
-  color:#b9c3cd;
-  line-height:1.85;
-  font-size:15px;
-  margin:0;
-}
-
-.tag{
-  display:inline-block;
-  margin-top:18px;
-  border:1px solid #3a4653;
-  border-radius:30px;
-  padding:6px 12px;
-  font-size:12px;
-  color:#95a5b5;
-}
-
-/* ===== 結尾 ===== */
-
-.end-note{
-  margin-top:70px;
-  background:#151b21;
-  border-left:5px solid #4f8df7;
-  padding:26px 30px;
-  border-radius:10px;
-  color:#c8d1da;
-  line-height:1.9;
+.rule strong{
+  display:block;
+  margin-bottom:10px;
   font-size:17px;
 }
 
-/* ===== 手機 ===== */
+.rule span{
+  color:#6d7f7f;
+  line-height:1.7;
+  font-size:14px;
+}
+
+/* 類別按鈕 */
+.category-tabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:25px;
+}
+
+.category-btn{
+  border:1px solid #ccd8d6;
+  background:#fff;
+  color:#476464;
+  border-radius:10px;
+  padding:10px 16px;
+  cursor:pointer;
+  font-weight:700;
+}
+
+.category-btn.active{
+  background:#e9f3f1;
+  border-color:#78aeb0;
+  color:#2f5556;
+}
+
+.category-content{
+  display:none;
+  background:#fff;
+  border:1px solid #d9e0de;
+  border-radius:16px;
+  padding:30px;
+  min-height:210px;
+}
+
+.category-content.active{
+  display:block;
+  animation:fadeIn .3s ease;
+}
+
+.category-content h3{
+  font-size:24px;
+  margin:0 0 16px;
+}
+
+.category-content p{
+  color:#637777;
+  line-height:1.9;
+  margin:0;
+}
+
+.note{
+  margin-top:35px;
+  background:#eef5f3;
+  border-left:5px solid #5d9fa8;
+  padding:20px 24px;
+  border-radius:10px;
+  color:#526969;
+  line-height:1.8;
+}
 
 @media(max-width:1000px){
-
-.strategy-grid{
-  grid-template-columns:1fr;
+  .rule-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
 }
 
-.rules{
-  grid-template-columns:repeat(2,1fr);
+@media(max-width:760px){
+  .wrapper{
+    padding:40px 18px 60px;
+  }
+
+  .header h1{
+    font-size:32px;
+  }
+
+  .card-grid,
+  .rule-grid{
+    grid-template-columns:1fr;
+  }
 }
-
-.categories{
-  grid-template-columns:repeat(2,1fr);
-}
-
-}
-
-@media(max-width:650px){
-
-.wrapper{
-  padding:50px 20px;
-}
-
-.header h1{
-  font-size:35px;
-}
-
-.rules,
-.categories{
-  grid-template-columns:1fr;
-}
-
-}
-
 </style>
 </head>
-
 
 <body>
 
 <div class="wrapper">
 
-<!-- ===== HEADER ===== -->
+  <div class="header">
+    <h1>數化策略與規範</h1>
+    <p>
+      透過共同的判釋標準與細部數化規範，
+      提高不同組員與不同時期成果的一致性與可比較性。
+    </p>
+  </div>
+
+  <!-- 主按鈕 -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showMainTab('strategy', this)">
+      數化策略
+    </button>
+
+    <button class="tab-btn" onclick="showMainTab('rules', this)">
+      一致規範
+    </button>
+
+    <button class="tab-btn" onclick="showMainTab('categories', this)">
+      各類別細部規範
+    </button>
+  </div>
+
+
+  <!-- 數化策略 -->
+  <section id="strategy" class="panel active">
+    <div class="card-grid">
+
+      <div class="card">
+        <h3>依影像時期分組</h3>
+        <p>
+          數化前依影像時期將人員分為兩組，
+          並共同討論各土地利用類別皆須遵守的一致性標準。
+          負責相同類別的組員再進一步確認判釋依據、
+          數化範圍與邊界判定方式。
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>多來源輔助判釋</h3>
+        <p>
+          以 Google Earth 影像作為主要依據，
+          並參考國土利用現況調查資料與 Google Earth 街景服務，
+          協助確認較難判釋的地物與土地利用類型。
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>依類別依序數化</h3>
+        <p>
+          依序完成農田及魚塭、水利設施、建築物、
+          太陽光電設施與道路數化，
+          最後再完成其他用地。
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>統一分類架構</h3>
+        <p>
+          不同年份影像皆採用相同的土地利用分類方式，
+          避免因時期不同而改變分類邏輯，
+          以維持兩期成果的可比較性。
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 一致規範 -->
+  <section id="rules" class="panel">
+    <div class="rule-grid">
+
+      <div class="rule">
+        <strong>統一辨識與尺度</strong>
+        <span>同類地物維持一致的辨識原則與最小數化尺度。</span>
+      </div>
+
+      <div class="rule">
+        <strong>Snapping 與 Trace</strong>
+        <span>相鄰 polygon 使用 Snapping 與 Trace 處理邊界，降低縫隙與重疊。</span>
+      </div>
+
+      <div class="rule">
+        <strong>疑義共同判釋</strong>
+        <span>遇到邊界模糊或分類不明區域時，由組員共同討論後決定。</span>
+      </div>
+
+      <div class="rule">
+        <strong>參考輔助資料</strong>
+        <span>分類不確定時，參考該年度國土利用現況調查成果進行判釋。</span>
+      </div>
+
+      <div class="rule">
+        <strong>成果品質檢核</strong>
+        <span>完成後檢查是否存在遺漏、重疊、邊界錯位或分類錯誤。</span>
+      </div>
+
+    </div>
+  </section>
+
 
-<div class="header">
-
-<div class="small">
-DIGITIZING STRATEGY & RULES
-</div>
-
-<h1>
-數化策略與規範
-</h1>
-
-<p>
-為降低不同組員與不同時期影像間的判釋差異，
-數化前先建立共同分類與邊界判定原則，
-再依各土地利用類型制定細部數化規範。
-</p>
-
-</div>
-
-
-<!-- ===== 01 策略 ===== -->
-
-<section class="section">
-
-<div class="section-title">
-
-<div class="section-number">
-01
-</div>
-
-<h2>
-數化策略
-</h2>
-
-</div>
-
-
-<div class="strategy-grid">
-
-
-<div class="strategy-card">
-
-<div class="icon">
-👥
-</div>
-
-<h3>
-依影像時期分組
-</h3>
-
-<p>
-數化前依影像時期將人員分為兩組，
-並共同討論所有土地利用分類皆須遵守的判釋標準。
-負責相同土地利用類別的組員，
-則進一步討論該類別的判釋依據、數化範圍與邊界判定方式。
-</p>
-
-</div>
-
-
-<div class="strategy-card">
-
-<div class="icon">
-🛰️
-</div>
-
-<h3>
-多來源輔助判釋
-</h3>
-
-<p>
-以 Google Earth 影像作為主要數化依據，
-並搭配國土利用現況調查資料與 Google Earth 街景服務，
-協助確認影像中較難判釋的地物與土地利用類型。
-</p>
-
-</div>
-
-
-<div class="strategy-card">
-
-<div class="icon">
-🧩
-</div>
-
-<h3>
-依類別依序數化
-</h3>
-
-<p>
-依序完成農田與魚塭、水利設施、建築物、
-太陽光電設施與道路數化，
-最後再處理其他用地，
-降低圖層重疊與遺漏的可能。
-</p>
-
-</div>
-
-
-<div class="strategy-card">
-
-<div class="icon">
-🗺️
-</div>
-
-<h3>
-統一分類架構
-</h3>
-
-<p>
-兩個影像時期皆採用相同土地利用分類架構，
-避免因影像年份不同而改變分類方式，
-使兩期成果具有可比較性。
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ===== 02 一致規範 ===== -->
-
-<section class="section">
-
-<div class="section-title">
-
-<div class="section-number">
-02
-</div>
-
-<h2>
-一致規範
-</h2>
-
-</div>
-
-
-<div class="rules">
-
-<div class="rule">
-
-<div class="rule-num">
-RULE 01
-</div>
-
-<h3>
-統一辨識與尺度
-</h3>
-
-<p>
-同一類地物使用一致的辨識原則與最小數化尺度，
-避免不同組員採用不同判釋標準。
-</p>
-
-</div>
-
-
-<div class="rule">
-
-<div class="rule-num">
-RULE 02
-</div>
-
-<h3>
-Snapping 與 Trace
-</h3>
-
-<p>
-數化時開啟 Snapping。
-新 polygon 若與既有圖徵相鄰，
-使用 Trace 沿既有邊界描繪，
-降低縫隙與重疊。
-</p>
-
-</div>
-
-
-<div class="rule">
-
-<div class="rule-num">
-RULE 03
-</div>
-
-<h3>
-疑義共同判釋
-</h3>
-
-<p>
-遇到邊界模糊或分類不明確的區域，
-由組員共同討論後決定分類與邊界，
-降低個人判讀差異。
-</p>
-
-</div>
-
-
-<div class="rule">
-
-<div class="rule-num">
-RULE 04
-</div>
-
-<h3>
-輔助資料確認
-</h3>
-
-<p>
-若無法確定地物分類，
-則參考該年度國土利用現況調查成果，
-協助進行土地利用判釋。
-</p>
+  <!-- 各類別 -->
+  <section id="categories" class="panel">
+
+    <div class="category-tabs">
+      <button class="category-btn active"
+        onclick="showCategory('agri', this)">
+        農田及魚塭
+      </button>
+
+      <button class="category-btn"
+        onclick="showCategory('water', this)">
+        水利設施
+      </button>
+
+      <button class="category-btn"
+        onclick="showCategory('building', this)">
+        建築物
+      </button>
+
+      <button class="category-btn"
+        onclick="showCategory('solar', this)">
+        綠能發電
+      </button>
+
+      <button class="category-btn"
+        onclick="showCategory('road', this)">
+        道路
+      </button>
+
+      <button class="category-btn"
+        onclick="showCategory('other', this)">
+        其他用地
+      </button>
+    </div>
+
+
+    <div id="agri" class="category-content active">
+      <h3>農田及魚塭</h3>
+      <p>
+        沿農田與魚塭可辨識邊界進行描繪。
+        魚塭之間若具有連通關係，
+        則形成同一個數化 polygon。
+      </p>
+    </div>
+
+    <div id="water" class="category-content">
+      <h3>水利設施</h3>
+      <p>
+        沿蓄水池、溝渠等水利設施之可辨識邊界進行描繪。
+      </p>
+    </div>
+
+    <div id="building" class="category-content">
+      <h3>建築物</h3>
+      <p>
+        以單棟建築及其明確附屬庭院作為一個數化單元。
+        若庭院與房屋使用關係明確，
+        則一併納入建築用地範圍。
+      </p>
+    </div>
+
+    <div id="solar" class="category-content">
+      <h3>綠能發電</h3>
+      <p>
+        依太陽光電設施之實際分布範圍逐區數化。
+        若相鄰太陽能板彼此連接，
+        則合併為同一個 polygon，
+        並於屬性欄位記錄其所在的土地利用類型。
+      </p>
+    </div>
+
+    <div id="road" class="category-content">
+      <h3>道路</h3>
+      <p>
+        沿道路兩側可辨識之邊緣進行數化，
+        以道路實際範圍作為 polygon 邊界。
+      </p>
+    </div>
+
+    <div id="other" class="category-content">
+      <h3>其他用地</h3>
+      <p>
+        待主要土地利用類別數化完成後，
+        再建立整個實驗區範圍，
+        並利用 Erase 功能扣除已數化區域，
+        取得其他用地之數化成果。
+      </p>
+    </div>
+
+  </section>
+
+
+  <div class="note">
+    所有組員皆依循共同制定的分類架構、判釋標準與邊界處理方式進行數化，
+    並於完成後進行成果檢核與品質管理。
+  </div>
 
 </div>
 
 
-<div class="rule">
+<script>
 
-<div class="rule-num">
-RULE 05
-</div>
+function showMainTab(id, btn){
 
-<h3>
-成果品質檢核
-</h3>
+  document.querySelectorAll('.panel')
+    .forEach(panel => panel.classList.remove('active'));
 
-<p>
-數化完成後進行整體檢查，
-確認是否存在遺漏、重疊、
-邊界錯位或分類錯誤。
-</p>
+  document.querySelectorAll('.tab-btn')
+    .forEach(button => button.classList.remove('active'));
 
-</div>
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
 
-</div>
 
-</section>
+function showCategory(id, btn){
 
+  document.querySelectorAll('.category-content')
+    .forEach(box => box.classList.remove('active'));
 
-<!-- ===== 03 各類細部規範 ===== -->
+  document.querySelectorAll('.category-btn')
+    .forEach(button => button.classList.remove('active'));
 
-<section class="section">
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
 
-<div class="section-title">
-
-<div class="section-number">
-03
-</div>
-
-<h2>
-各類別細部數化規範
-</h2>
-
-</div>
-
-
-<div class="categories">
-
-
-<div class="category">
-
-<div class="category-icon">
-🌾
-</div>
-
-<h3>
-農田與魚塭
-</h3>
-
-<p>
-沿農田與魚塭可辨識邊界進行描繪。
-魚塭之間若具有連通關係，
-則視為同一個數化 polygon。
-</p>
-
-<div class="tag">
-Agriculture
-</div>
-
-</div>
-
-
-<div class="category">
-
-<div class="category-icon">
-💧
-</div>
-
-<h3>
-水利設施
-</h3>
-
-<p>
-沿蓄水池、溝渠及其他水利設施
-可辨識的實際邊界進行數化。
-</p>
-
-<div class="tag">
-Water
-</div>
-
-</div>
-
-
-<div class="category">
-
-<div class="category-icon">
-🏠
-</div>
-
-<h3>
-建築物
-</h3>
-
-<p>
-以單棟建築與其明確附屬庭院
-作為一個數化單元。
-若庭院與建築使用關係明確，
-則一併納入建築用地。
-</p>
-
-<div class="tag">
-Building
-</div>
-
-</div>
-
-
-<div class="category">
-
-<div class="category-icon">
-☀️
-</div>
-
-<h3>
-綠能發電
-</h3>
-
-<p>
-依太陽光電設施實際分布範圍逐區數化。
-相鄰且彼此連接的太陽能板
-合併為同一 polygon，
-並於屬性欄位記錄其所在土地利用類型。
-</p>
-
-<div class="tag">
-Solar
-</div>
-
-</div>
-
-
-<div class="category">
-
-<div class="category-icon">
-🛣️
-</div>
-
-<h3>
-道路
-</h3>
-
-<p>
-沿道路兩側可辨識邊緣進行描繪，
-以道路實際範圍作為 polygon 邊界。
-</p>
-
-<div class="tag">
-Transportation
-</div>
-
-</div>
-
-
-<div class="category">
-
-<div class="category-icon">
-⬜
-</div>
-
-<h3>
-其他用地
-</h3>
-
-<p>
-待主要土地利用類別數化完成後，
-先建立完整實驗區範圍，
-再利用 Erase 功能扣除已數化區域，
-取得剩餘的其他用地。
-</p>
-
-<div class="tag">
-Other
-</div>
-
-</div>
-
-
-</div>
-
-
-<div class="end-note">
-
-所有組員皆依循共同制定的分類架構、
-判釋標準與邊界處理方式進行數化，
-並於完成後進行成果檢核與品質管理，
-以提升兩期土地利用資料的一致性與可比較性。
-
-</div>
-
-</section>
-
-</div>
+</script>
 
 </body>
 </html>
