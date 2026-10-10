@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>數化策略</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      background: #0f1318;
+      color: #ffffff;
+    }
+
+    .wrap {
+      max-width: 1400px;
+      margin: auto;
+      padding: 70px 40px 80px;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #aeb7c2;
+      font-size: 17px;
+      margin-bottom: 60px;
+    }
+
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+
+    .strategy-grid::before {
+      content: "";
+      position: absolute;
+      top: 44px;
+      left: 8%;
+      right: 8%;
+      height: 2px;
+      background: linear-gradient(
+        to right,
+        #f39a59,
+        #b9ef6c,
+        #c8d0db,
+        #4e8df5
+      );
+      opacity: 0.65;
+      z-index: 0;
+    }
+
+    .card {
+      position: relative;
+      background: #171d24;
+      border: 1px solid #2a323c;
+      border-radius: 18px;
+      padding: 28px 24px 24px;
+      cursor: pointer;
+      transition: 0.28s ease;
+      z-index: 1;
+      min-height: 330px;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #697785;
+      box-shadow: 0 16px 30px rgba(0,0,0,0.28);
+    }
+
+    .step {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      margin-bottom: 22px;
+      border: 4px solid #0f1318;
+    }
+
+    .card:nth-child(1) .step {
+      background: #f39a59;
+      color: #111;
+    }
+
+    .card:nth-child(2) .step {
+      background: #b9ef6c;
+      color: #111;
+    }
+
+    .card:nth-child(3) .step {
+      background: #d1d5db;
+      color: #111;
+    }
+
+    .card:nth-child(4) .step {
+      background: #4e8df5;
+      color: #fff;
+    }
+
+    .icon {
+      font-size: 48px;
+      margin-bottom: 18px;
+    }
+
+    h3 {
+      margin: 0 0 14px;
+      font-size: 22px;
+      line-height: 1.4;
+    }
+
+    .summary {
+      color: #c3ccd6;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .detail {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      margin-top: 0;
+      transition: 0.35s ease;
+      color: #e4e8ed;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .card.active .detail {
+      max-height: 220px;
+      opacity: 1;
+      margin-top: 18px;
+    }
+
+    .hint {
+      margin-top: 18px;
+      color: #8d98a5;
+      font-size: 13px;
+    }
+
+    .card.active .hint::after {
+      content: " ▲";
+    }
+
+    .hint::after {
+      content: " ▼";
+    }
+
+    .bottom-note {
+      margin-top: 50px;
+      padding: 22px 26px;
+      border-left: 4px solid #5d93ff;
+      background: #151b21;
+      color: #c8d1da;
+      line-height: 1.8;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 1000px) {
+      .strategy-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .strategy-grid::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .wrap {
+        padding: 45px 18px 60px;
+      }
+
+      .title {
+        font-size: 32px;
+      }
+
+      .strategy-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="wrap">
+    <div class="title">數化策略與分工</div>
+    <div class="subtitle">
+      透過一致的數化規範與輔助判釋工具，提高成果的一致性與效率
+    </div>
+
+    <div class="strategy-grid">
+
+      <div class="card" onclick="toggleCard(this)">
+        <div class="step">1</div>
+        <div class="icon">🧩</div>
+        <h3>同類別集中數化</h3>
+        <div class="summary">
+          依土地利用類別分層進行數化，降低漏畫與編碼錯誤。
+        </div>
+        <div class="detail">
+          同一種類的地物由負責該類別的組員集中處理，
+          可避免在不同圖層之間反覆切換，
+          並降低漏畫、重複數化與編碼錯亂的可能性。
+        </div>
+        <div class="hint">點擊查看詳細說明</div>
+      </div>
+
+      <div class="card" onclick="toggleCard(this)">
+        <div class="step">2</div>
+        <div class="icon">🎯</div>
+        <h3>設定判釋門檻</h3>
+        <div class="summary">
+          對尺度過小或邊界不明顯的地物，依共同規範進行歸類。
+        </div>
+        <div class="detail">
+          例如長邊小於 10 公尺的白色不明顯目標物，
+          經組員共同討論後，可歸類為農地的一部分，
+          以避免過度細碎數化並提高整體效率。
+        </div>
+        <div class="hint">點擊查看詳細說明</div>
+      </div>
+
+      <div class="card" onclick="toggleCard(this)">
+        <div class="step">3</div>
+        <div class="icon">🌍</div>
+        <h3>輔以 Google Earth Pro 與街景判釋</h3>
+        <div class="summary">
+          針對遮蔽、模糊或道路不易辨識的區域進行輔助確認。
+        </div>
+        <div class="detail">
+          當影像受到雲霧、遮蔽、模糊或鋪面材質影響時，
+          搭配 Google Earth Pro 與街景服務，
+          協助判斷道路、建築及其他地物的實際類型與邊界。
+        </div>
+        <div class="hint">點擊查看詳細說明</div>
+      </div>
+
+      <div class="card" onclick="toggleCard(this)">
+        <div class="step">4</div>
+        <div class="icon">🛠️</div>
+        <h3>運用 ArcGIS Pro 編輯工具</h3>
+        <div class="summary">
+          利用 Erase 等工具處理重疊與邊界，提高數化效率。
+        </div>
+        <div class="detail">
+          數化過程中搭配 ArcGIS Pro 的編輯與空間分析工具，
+          協助處理圖徵重疊、邊界銜接與裁切，
+          減少重複手動描繪所需的時間。
+        </div>
+        <div class="hint">點擊查看詳細說明</div>
+      </div>
+
+    </div>
+
+    <div class="bottom-note">
+      數化前先建立共同判釋標準，數化過程再利用影像、街景與 GIS 編輯工具相互輔助，
+      最後透過成果檢核與品質管理確認不同組員之間的數化一致性。
+    </div>
+  </section>
+
+  <script>
+    function toggleCard(card) {
+      card.classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
